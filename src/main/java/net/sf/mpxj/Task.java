@@ -4600,6 +4600,76 @@ public final class Task extends ProjectEntity implements Comparable<Task>, Proje
       return result;
    }
 
+   public String getActivityID()
+   {
+      return (String)getCachedValue(TaskField.ACTIVITY_ID);
+   }
+   
+   public void setActivityID(String activityID)
+   {
+      set(TaskField.ACTIVITY_ID, activityID);
+   }
+
+   public String getActivityType()
+   {
+      return (String)getCachedValue(TaskField.ACTIVITY_TYPE);
+   }
+   
+   public void setActivityType(String activityType)
+   {
+      set(TaskField.ACTIVITY_TYPE, activityType);
+   }
+   
+   public String getActivityStatus()
+   {
+      return (String)getCachedValue(TaskField.ACTIVITY_STATUS);
+   }
+   
+   public void setActivityStatus(String activityStatus)
+   {
+      set(TaskField.ACTIVITY_STATUS, activityStatus);
+   }
+
+   public Number getOverallPercentComplete()
+   {
+      return ((Number) getCachedValue(TaskField.OVERALL_PERCENT_COMPLETE));
+   }
+
+   public void setOverallPercentComplete(Number val)
+   {
+      set(TaskField.OVERALL_PERCENT_COMPLETE, val);
+   }
+   
+   public Integer getPrimaryResourceID()
+   {
+      return (Integer)getCachedValue(TaskField.PRIMARY_RESOURCE_ID);
+   }
+   
+   public void setPrimaryResourceID(Integer primaryResourceID)
+   {
+      set(TaskField.PRIMARY_RESOURCE_ID, primaryResourceID);
+   }
+
+   public Date getActivitySuspendDate()
+   {
+      return (Date)getCachedValue(TaskField.ACTIVITY_SUSPEND_DATE);
+   }
+   
+   public void setActivitySuspendDate(Date activitySuspendDate)
+   {
+      set(TaskField.ACTIVITY_SUSPEND_DATE, activitySuspendDate);
+   }
+
+   public Date getActivityResumeDate()
+   {
+      return (Date)getCachedValue(TaskField.ACTIVITY_RESUME_DATE);
+   }
+   
+   public void setActivityResumeDate(Date activityResumeDate)
+   {
+      set(TaskField.ACTIVITY_RESUME_DATE, activityResumeDate);
+   }
+
    /**
     * This method allows a predecessor relationship to be removed from this
     * task instance.  It will only delete relationships that exactly match the

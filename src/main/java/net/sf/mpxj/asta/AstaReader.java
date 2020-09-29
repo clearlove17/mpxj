@@ -85,6 +85,7 @@ final class AstaReader
       m_project.getProjectProperties().setFileApplication("Asta");
       m_project.getProjectProperties().setFileType("PP");
 
+      // TODO deprecated - provided for backward compatibility
       CustomFieldContainer fields = m_project.getCustomFields();
       fields.getCustomField(TaskField.TEXT1).setAlias("Code");
       fields.getCustomField(TaskField.NUMBER1).setAlias("Overall Percent Complete");
@@ -468,6 +469,7 @@ final class AstaReader
       task.setName(row.getString("NARE"));
       task.setNotes(getNotes(row));
       task.setText(1, row.getString("UNIQUE_TASK_ID"));
+      task.setActivityID(row.getString("UNIQUE_TASK_ID"));
       task.setCalendar(m_project.getCalendarByUniqueID(row.getInteger("CALENDAU")));
       //EFFORT_TIMI_UNIT
       //WORL_UNIT
@@ -510,6 +512,7 @@ final class AstaReader
       //
       Double overallPercentComplete = row.getPercent("OVERALL_PERCENV_COMPLETE");
       task.setNumber(1, overallPercentComplete);
+      task.setOverallPercentComplete(overallPercentComplete);
       m_weights.put(task, row.getDouble("OVERALL_PERCENT_COMPL_WEIGHT"));
 
       //

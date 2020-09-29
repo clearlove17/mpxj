@@ -984,7 +984,7 @@ public enum TaskField implements FieldType
    PATH_DRIVING_PREDECESSOR(DataType.BOOLEAN),
    PATH_PREDECESSOR(DataType.BOOLEAN),
    PATH_SUCCESSOR(DataType.BOOLEAN),
-
+   
    // KEEP THESE TOGETHER AND IN ORDER
    ENTERPRISE_CUSTOM_FIELD1(DataType.BINARY),
    ENTERPRISE_CUSTOM_FIELD2(DataType.BINARY),
@@ -1038,6 +1038,16 @@ public enum TaskField implements FieldType
    ENTERPRISE_CUSTOM_FIELD50(DataType.BINARY),
    // KEEP THESE TOGETHER AND IN ORDER
 
+   // BEGIN: non MS Project attributes
+   ACTIVITY_ID(DataType.STRING),
+   ACTIVITY_TYPE(DataType.STRING),
+   ACTIVITY_STATUS(DataType.STRING),
+   OVERALL_PERCENT_COMPLETE(DataType.PERCENTAGE),
+   PRIMARY_RESOURCE_ID(DataType.INTEGER),
+   ACTIVITY_RESUME_DATE(DataType.DATE),
+   ACTIVITY_SUSPEND_DATE(DataType.DATE),
+   // END: non MS Project attributes
+   
    FINISH(DataType.DATE); // Must always be last value
 
    /**

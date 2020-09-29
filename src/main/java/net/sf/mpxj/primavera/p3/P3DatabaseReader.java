@@ -159,7 +159,7 @@ public final class P3DatabaseReader extends AbstractProjectFileReader
          config.setAutoOutlineNumber(true);
          config.setAutoWBS(false);
 
-         // Activity ID
+         // TODO deprecated - provided for backward compatibility
          m_projectFile.getCustomFields().getCustomField(TaskField.TEXT1).setAlias("Code");
 
          m_projectFile.getProjectProperties().setFileApplication("P3");
@@ -376,6 +376,8 @@ public final class P3DatabaseReader extends AbstractProjectFileReader
          }
          Task task = parent.addTask();
          setFields(TASK_FIELDS, row, task);
+         // TODO deprecated - provided for backward compatibility
+         task.setText(1,  task.getActivityID());
          task.setStart(task.getEarlyStart());
          task.setFinish(task.getEarlyFinish());
          task.setMilestone(task.getDuration().getDuration() == 0);
@@ -636,7 +638,7 @@ public final class P3DatabaseReader extends AbstractProjectFileReader
       defineField(RESOURCE_FIELDS, "RES_ID", ResourceField.CODE);
 
       defineField(TASK_FIELDS, "ACTIVITY_TITLE", TaskField.NAME);
-      defineField(TASK_FIELDS, "ACTIVITY_ID", TaskField.TEXT1);
+      defineField(TASK_FIELDS, "ACTIVITY_ID", TaskField.ACTIVITY_ID);
       defineField(TASK_FIELDS, "ORIGINAL_DURATION", TaskField.DURATION);
       defineField(TASK_FIELDS, "REMAINING_DURATION", TaskField.REMAINING_DURATION);
       defineField(TASK_FIELDS, "PERCENT_COMPLETE", TaskField.PERCENT_COMPLETE);

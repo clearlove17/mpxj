@@ -117,7 +117,7 @@ public final class PhoenixReader extends AbstractProjectStreamReader
          m_projectFile.getProjectProperties().setFileApplication("Phoenix");
          m_projectFile.getProjectProperties().setFileType("PPX");
 
-         // Equivalent to Primavera's Activity ID
+         // TODO deprecated - provided for backward compatibility
          m_projectFile.getCustomFields().getCustomField(TaskField.TEXT1).setAlias("Code");
 
          addListenersToProject(m_projectFile);
@@ -492,7 +492,8 @@ public final class PhoenixReader extends AbstractProjectStreamReader
    {
       Task task = getParentTask(activity).addTask();
       task.setText(1, activity.getId());
-
+      task.setActivityID(activity.getId());
+      
       task.setActualDuration(activity.getActualDuration());
       task.setActualFinish(activity.getActualFinish());
       task.setActualStart(activity.getActualStart());

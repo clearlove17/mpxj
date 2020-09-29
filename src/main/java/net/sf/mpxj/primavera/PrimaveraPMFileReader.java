@@ -320,8 +320,9 @@ public final class PrimaveraPMFileReader extends AbstractProjectStreamReader
          m_projectFile.getProjectProperties().setFileApplication("Primavera");
          m_projectFile.getProjectProperties().setFileType("PMXML");
 
+         // TODO deprecated - provided for backward compatibility
          CustomFieldContainer fields = m_projectFile.getCustomFields();
-         fields.getCustomField(TaskField.TEXT1).setAlias("Code");
+         fields.getCustomField(TaskField.TEXT1).setAlias("Code");         
          fields.getCustomField(TaskField.TEXT2).setAlias("Activity Type");
          fields.getCustomField(TaskField.TEXT3).setAlias("Status");
          fields.getCustomField(TaskField.NUMBER1).setAlias("Primary Resource Unique ID");
@@ -811,6 +812,7 @@ public final class PrimaveraPMFileReader extends AbstractProjectStreamReader
             }
 
             task.setText(1, task.getWBS());
+            task.setActivityID(task.getWBS());
          }
       }
 
@@ -877,10 +879,14 @@ public final class PrimaveraPMFileReader extends AbstractProjectStreamReader
          task.setPriority(PRIORITY_MAP.get(row.getLevelingPriority()));
          task.setCreateDate(row.getCreateDate());
          task.setText(1, row.getId());
+         task.setActivityID(row.getId());
          task.setText(2, row.getType());
+         task.setActivityType(row.getType());
          task.setText(3, row.getStatus());
+         task.setActivityStatus(row.getStatus());
          task.setNumber(1, row.getPrimaryResourceObjectId());
-
+         task.setPrimaryResourceID(row.getPrimaryResourceObjectId());
+         
          task.setMilestone(BooleanHelper.getBoolean(MILESTONE_MAP.get(row.getType())));
          task.setCritical(task.getEarlyStart() != null && task.getLateStart() != null && !(task.getLateStart().compareTo(task.getEarlyStart()) > 0));
 

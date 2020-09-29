@@ -549,7 +549,7 @@ public final class TurboProjectReader extends AbstractProjectStreamReader
       defineField(A1TAB_FIELDS, "PLANNED_START", TaskField.BASELINE_START);
       defineField(A1TAB_FIELDS, "PLANNED_FINISH", TaskField.BASELINE_FINISH);
 
-      defineField(A2TAB_FIELDS, "DESCRIPTION", TaskField.TEXT1, "Description");
+      defineField(A2TAB_FIELDS, "DESCRIPTION", TaskField.NOTES);
 
       defineField(A3TAB_FIELDS, "EARLY_START", TaskField.EARLY_START);
       defineField(A3TAB_FIELDS, "LATE_START", TaskField.LATE_START);
@@ -559,8 +559,8 @@ public final class TurboProjectReader extends AbstractProjectStreamReader
       defineField(A5TAB_FIELDS, "ORIGINAL_DURATION", TaskField.DURATION);
       defineField(A5TAB_FIELDS, "REMAINING_DURATION", TaskField.REMAINING_DURATION);
       defineField(A5TAB_FIELDS, "PERCENT_COMPLETE", TaskField.PERCENT_COMPLETE);
-      defineField(A5TAB_FIELDS, "TARGET_START", TaskField.DATE1, "Target Start");
-      defineField(A5TAB_FIELDS, "TARGET_FINISH", TaskField.DATE2, "Target Finish");
+      defineField(A5TAB_FIELDS, "TARGET_START", TaskField.BASELINE_START);
+      defineField(A5TAB_FIELDS, "TARGET_FINISH", TaskField.BASELINE_FINISH);
       defineField(A5TAB_FIELDS, "ACTUAL_START", TaskField.ACTUAL_START);
       defineField(A5TAB_FIELDS, "ACTUAL_FINISH", TaskField.ACTUAL_FINISH);
    }
